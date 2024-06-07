@@ -1,23 +1,28 @@
-# Use an official Node.js image
-FROM node:14
+FROM node:16
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY package*.json ./
+COPY ./package*.json ./
 
-# Install dependencies
+# Install app dependencies
 RUN npm install
 
-# Copy the rest of the application code
-COPY . .
+# Bundle app source
+COPY . ./
 
 # Ensure vue-cli-service is executable
-RUN chmod +x ./node_modules/.bin/vue-cli-service
+RUN chmod +x /app/node_modules/.bin/vue-cli-service
 
-# Expose the port the app runs on
+# Ensure all shell scripts are executable
+RUN find /app -type f -name "*.sh" -exec chmod +x {} \;
+
+# Set permissions (if needed on Linux)
+RUN chown -R node:node /app
+
+# Expose port
 EXPOSE 8080
 
-# Run the application
+# Start command
 CMD ["npm", "run", "serve"]
