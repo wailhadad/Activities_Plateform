@@ -1,18 +1,19 @@
 FROM node:16
 
+# Set working directory
 WORKDIR /app
 
-# Install Vue CLI globally
-RUN npm install -g @vue/cli
+# Copy package.json and package-lock.json
+COPY ./package*.json ./
 
-COPY package*.json ./
-
+# Install app dependencies
 RUN npm install
 
-COPY . .
+# Bundle app source
+COPY . ./
 
-# Ensure permissions
-RUN chmod -R 777 /app
-
+# Expose port
 EXPOSE 8080
+
+# Start command
 CMD ["npm", "run", "serve"]
