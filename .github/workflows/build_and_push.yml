@@ -36,10 +36,19 @@ jobs:
       - name: Deploy to EC2
         run: |
           ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-53-35-38.eu-north-1.compute.amazonaws.com << 'EOF'
-            # Install git if not already installed
-            sudo apt-get update
-            sudo apt-get install -y git
-          
+            # Add the user to the docker group
+            sudo usermod -aG docker ubuntu
+            # Reboot to apply the group change
+            sudo reboot
+          EOF
+
+      - name: Wait for EC2 to Reboot
+        run: |
+          sleep 60
+
+      - name: Continue Deployment
+        run: |
+          ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-53-35-38.eu-north-1.compute.amazonaws.com << 'EOF'
             # Clone the repository and checkout the latest commit
             cd /home/ubuntu
             if [ -d my-docker-compose-project ]; then
@@ -50,7 +59,7 @@ jobs:
             git checkout ${{ github.sha }}
           
             # Run Docker Compose
-            docker-compose pull
-            docker-compose up -d --remove-orphans
-            docker system prune -af
+            sudo docker-compose pull
+            sudo docker-compose up -d --remove-orphans
+            sudo docker system prune -af
           EOF
