@@ -58,15 +58,15 @@ services:
       - backend
       - dnsmasq
 
-  dnsmasq:
-    image: wailhadad1221/project_image:dnsmasq
-    cap_add:
-      - NET_ADMIN
-    ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-    volumes:
-      - ./hosts:/etc/hosts-custom
+#  dnsmasq:
+#    image: wailhadad1221/project_image:dnsmasq
+#    cap_add:
+#      - NET_ADMIN
+#    ports:
+#      - "53:53/tcp"
+#      - "53:53/udp"
+#    volumes:
+#      - ./hosts:/etc/hosts-custom
 
   db:
     image: wailhadad1221/project_image:postgres
