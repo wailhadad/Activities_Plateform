@@ -15,8 +15,8 @@ RUN npm install -g @vue/cli
 # Bundle app source
 COPY . ./
 
-#setting permissions no need in windows this config is just for linux os hahaha
-RUN chown -R .
+# Set permissions (if needed on Linux)
+RUN chown -R node:node /app
 
 # Expose port
 EXPOSE 8080
