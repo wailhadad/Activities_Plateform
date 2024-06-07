@@ -24,12 +24,6 @@ RUN find /app/node_modules/.bin -type f -name "*" -exec chmod +x {} \;
 # Ensure all shell scripts are executable
 RUN find /app -type f -name "*.sh" -exec chmod +x {} \;
 
-# Set correct ownership (assuming the app runs as the root user)
-RUN chown -R node:node /app
-
-# Switch to non-root user
-USER node
-
 # Expose port
 EXPOSE 8080
 
