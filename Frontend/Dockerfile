@@ -7,16 +7,13 @@ WORKDIR /app
 COPY ./package*.json ./
 
 # Install app dependencies
-RUN npm install
-
-# Install Vue CLI globally
 RUN npm install -g @vue/cli
 
 # Bundle app source
 COPY . ./
 
-# Set permissions (if needed on Linux)
-RUN chown -R .
+# Set file permissions for Frontend directory
+RUN chmod -R 777 .
 
 # Expose port
 EXPOSE 8080
