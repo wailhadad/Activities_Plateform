@@ -36,30 +36,22 @@ jobs:
       - name: Deploy to EC2
         run: |
           ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-53-35-38.eu-north-1.compute.amazonaws.com << 'EOF'
-            # Add the user to the docker group
-            sudo usermod -aG docker ubuntu
-            # Reboot to apply the group change
-            sudo reboot
-          EOF
-
-      - name: Wait for EC2 to Reboot
-        run: |
-          sleep 60
-
-      - name: Continue Deployment
-        run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-53-35-38.eu-north-1.compute.amazonaws.com << 'EOF'
-            # Clone the repository and checkout the latest commit
+            # Clone the repository and navigate to the project directory
             cd /home/ubuntu
             if [ -d my-docker-compose-project ]; then
               rm -rf my-docker-compose-project
             fi
-            git clone https://github.com/${{ github.repository }}.git my-docker-compose-project
+            git clone https://github.com/WAIL1221/CD1_APP.git my-docker-compose-project
             cd my-docker-compose-project
-            git checkout ${{ github.sha }}
+          
+            # Ensure entrypoint scripts are executable
+            find . -name "*.sh" -exec chmod +x {} \;
           
             # Run Docker Compose
             sudo docker-compose pull
             sudo docker-compose up -d --remove-orphans
             sudo docker system prune -af
+          
+            # List running containers
+            sudo docker ps
           EOF

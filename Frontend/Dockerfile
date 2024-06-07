@@ -12,6 +12,9 @@ RUN npm install
 # Bundle app source
 COPY . ./
 
+# Ensure vue-cli-service is executable
+RUN chmod +x ./node_modules/.bin/vue-cli-service
+
 # Expose port
 EXPOSE 8080
 
