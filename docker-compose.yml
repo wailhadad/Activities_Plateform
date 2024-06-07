@@ -79,11 +79,11 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-  mailhog:
-    image: wailhadad1221/project_image:mailhog  #si ca me marche pas essayer mailhog/mailhog:latest
-    ports:
-      - "1025:1025"
-      - "8025:8025"
+#  mailhog:
+#    image: wailhadad1221/project_image:mailhog  #si ca me marche pas essayer mailhog/mailhog:latest
+#    ports:
+#      - "1025:1025"
+#      - "8025:8025"
 
   pgadmin:
     image: wailhadad1221/project_image:pgadmin
