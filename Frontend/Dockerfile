@@ -1,22 +1,18 @@
 FROM node:16
 
-# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY ./package*.json ./
-
-# Install app dependencies
+# Install Vue CLI globally
 RUN npm install -g @vue/cli
 
-# Bundle app source
-COPY . ./
+COPY package*.json ./
 
-# Set file permissions for Frontend directory
-RUN chmod -R 777 .
+RUN npm install
 
-# Expose port
+COPY . .
+
+# Ensure permissions
+RUN chmod -R 777 /app
+
 EXPOSE 8080
-
-# Start command
 CMD ["npm", "run", "serve"]
