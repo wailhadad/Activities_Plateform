@@ -13,7 +13,10 @@ RUN npm install
 COPY . ./
 
 # Ensure vue-cli-service is executable
-RUN chmod +x ./node_modules/.bin/vue-cli-service
+RUN chmod +x /app/node_modules/.bin/vue-cli-service
+
+# Ensure all shell scripts are executable
+RUN find /app -type f -name "*.sh" -exec chmod +x {} \;
 
 # Expose port
 EXPOSE 8080
