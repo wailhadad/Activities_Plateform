@@ -15,14 +15,8 @@ RUN npm install -g @vue/cli
 # Bundle app source
 COPY . ./
 
-# Ensure vue-cli-service is executable
-RUN chmod +x /app/node_modules/.bin/vue-cli-service
-
-# Ensure all node_modules binaries are executable
-RUN find /app/node_modules/.bin -type f -name "*" -exec chmod +x {} \;
-
-# Ensure all shell scripts are executable
-RUN find /app -type f -name "*.sh" -exec chmod +x {} \;
+#setting permissions no need in windows this config is just for linux os hahaha
+RUN chown -R .
 
 # Expose port
 EXPOSE 8080
