@@ -78,7 +78,7 @@ services:
       POSTGRES_PASSWORD: password
     volumes:
       - pgdata:/var/lib/postgresql/data
-
+#
 #  mailhog:
 #    image: wailhadad1221/project_image:mailhog  #si ca me marche pas essayer mailhog/mailhog:latest
 #    ports:
