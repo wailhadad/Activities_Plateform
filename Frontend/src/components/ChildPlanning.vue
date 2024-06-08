@@ -36,7 +36,7 @@ export default {
     async fetchPlanning() {
       const enfantId = this.$route.params.id;
       try {
-        const response = await axios.get(`http://backend:8000/api/show/enfant/planning/${enfantId}`);
+        const response = await axios.get(`http://16.171.236.20:8000/api/show/enfant/planning/${enfantId}`);
         alert(enfantId) ;
         this.planning = response.data;
         this.loading = false;

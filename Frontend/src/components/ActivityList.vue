@@ -5,7 +5,7 @@
     <div v-else-if="error" class="error-message">Erreur lors de la récupération des activités. Veuillez réessayer plus tard.</div>
     <div v-else>
       <div v-for="activity in activities" :key="activity.id" class="activity-item">
-<img :src="`http://backend:8000/storage/${activity.image_pub || '@/assets/child.png'}`" alt="Image de l'activité" class="activity-image">
+<img :src="`http://16.171.236.20:8000/storage/${activity.image_pub || '@/assets/child.png'}`" alt="Image de l'activité" class="activity-image">
         <div class="activity-details">
           <h3>{{ activity.titre }}</h3>
           <p>{{ activity.description }}</p>
@@ -51,7 +51,7 @@ export default {
       const offerTitre = this.$route.query.offerTitre ;
       try {
         alert(offerTitre) ;
-        const response = await axios.get(`http://backend:8000/api/show/offer/activities/all/${offerId}`);
+        const response = await axios.get(`http://16.171.236.20:8000/api/show/offer/activities/all/${offerId}`);
         this.activities = response.data.map(activity => ({ ...activity, showDetails: false }));
         this.loading = false;
       } catch (error) {

@@ -35,7 +35,7 @@ export default {
   methods: {
     async fetchRequests() {
       try {
-        const response = await axios.get('http://backend:8000/api/show/demandes/parent/');
+        const response = await axios.get('http://16.171.236.20:8000/api/show/demandes/parent/');
         this.demande = response.data;
         this.loading = false;
 

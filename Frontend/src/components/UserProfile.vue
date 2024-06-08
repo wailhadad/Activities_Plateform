@@ -40,7 +40,7 @@ export default {
   methods: {
     async fetchUserProfile() {
       try {
-        const response = await axios.get('http://backend:8000/api/user/profile');
+        const response = await axios.get('http://16.171.236.20:8000/api/user/profile');
         this.user = response.data;
         this.loading = false;
       } catch (error) {

@@ -70,7 +70,7 @@ export default {
         }
 
         // Envoyez les données au backend
-        await axios.post('http://backend:8000/api/children', formData, {
+        await axios.post('http://16.171.236.20:8000/api/children', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }

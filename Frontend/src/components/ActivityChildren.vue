@@ -35,7 +35,7 @@ export default {
     async fetchChildren() {
       const { requestId, activityId } = this.$route.params; // Assuming you are passing the request and activity IDs via route parameters
       try {
-const response = await axios.get(`http://backend:8000/api/show/parent/demande/activity/enfants/${requestId}/${activityId}`);        this.children = response.data;
+const response = await axios.get(`http://16.171.236.20:8000/api/show/parent/demande/activity/enfants/${requestId}/${activityId}`);        this.children = response.data;
         this.loading = false;
       } catch (error) {
         console.error('Erreur lors de la récupération des enfants:', error);

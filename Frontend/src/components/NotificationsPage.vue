@@ -54,7 +54,7 @@ export default {
     },
     async loadNotifications() {
       try {
-        const response = await axios.get('http://backend:8000/api/show/notification/parent/top/');
+        const response = await axios.get('http://16.171.236.20:8000/api/show/notification/parent/top/');
         this.notifications = response.data;
         this.loading = false;
       } catch (error) {

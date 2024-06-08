@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     submitForm() {
-      axios.post('http://backend:8000/api/forget-password', { email: this.email })
+      axios.post('http://16.171.236.20:8000/api/forget-password', { email: this.email })
         .then(response => {
           alert('Un email de réinitialisation a été envoyé!');
           console.log(response.data);
