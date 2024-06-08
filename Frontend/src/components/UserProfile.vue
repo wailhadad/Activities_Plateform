@@ -51,7 +51,7 @@ export default {
     },
     async updateProfile() {
       try {
-        const response = await axios.put('http://backend:8000/api/user/profile', this.user);
+        const response = await axios.put('http://16.171.236.20:8000/api/user/profile', this.user);
         console.log("Mise à jour des données de l'utilisateur réussie:", response.data);
       } catch (error) {
         console.error('Erreur lors de la mise à jour du profil:', error);
