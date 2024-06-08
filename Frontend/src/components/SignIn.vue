@@ -31,7 +31,7 @@ axios.defaults.withXSRFToken = true;
 
 async function getCSRFToken() {
     try {
-        await axios.get('http://16.171.236.20:8000/sanctum/csrf-cookie');
+        await axios.get('http://16.170.159.222:8000/sanctum/csrf-cookie');
 
     } catch (error) {
         console.error('Failed to fetch CSRF token:', error);

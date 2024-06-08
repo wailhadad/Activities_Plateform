@@ -37,7 +37,7 @@ export default {
     async fetchChildren() {
       try {
         alert(this.activityId) ;
-        const response = await axios.get(`http://16.171.236.20:8000/api/show/parent/enfant/`);
+        const response = await axios.get(`http://16.170.159.222:8000/api/show/parent/enfant/`);
         this.children = response.data;
         this.loading = false;
       } catch (error) {
