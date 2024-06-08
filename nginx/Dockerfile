@@ -19,7 +19,7 @@ RUN npm run build
 FROM nginx:stable-alpine
 
 # Copy custom NGINX configuration
-COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 # Remove default NGINX files and copy the built Vue.js files
 RUN rm -rf /usr/share/nginx/html/*
