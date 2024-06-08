@@ -35,7 +35,7 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-53-35-38.eu-north-1.compute.amazonaws.com << 'EOF'
+          ssh -o StrictHostKeyChecking=no ubuntu@ec2-51-20-52-233.eu-north-1.compute.amazonaws.com << 'EOF'
             # Clone the repository and navigate to the project directory
             cd /home/ubuntu
             if [ -d my-docker-compose-project ]; then
