@@ -43,12 +43,12 @@ services:
     depends_on:
       - backend
       - db
-#
+
   nginx:
     image: wailhadad1221/project_image:nginx-custom
     ports:
       - "80:80"
-#      - "105.73.96.75:80:80"
+      - "13.60.9.127:80:80"
       - "443:443"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
