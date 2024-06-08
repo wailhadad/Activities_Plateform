@@ -27,7 +27,7 @@ export default {
   methods: {
     async submitRequest() {
       try {
-        const response = await axios.post('http://16.170.159.222:8000/api/create/demande/', {
+        const response = await axios.post(`${process.env.VUE_APP_API_URL}/api/create/demande/`, {
           activities: this.selectedActivities
         });
         alert(response.data.name);

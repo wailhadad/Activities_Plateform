@@ -78,7 +78,7 @@ export default {
       if (this.emailError || this.passwordError) {
         return;
       }
-      axios.post('http://16.170.143.19:8000/api/register-parent', this.user)
+      axios.post(`${process.env.VUE_APP_API_URL}/api/register-parent`, this.user)
         .then(response => {
           alert('Inscription réussie!');
           console.log(response.data);

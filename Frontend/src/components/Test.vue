@@ -47,7 +47,7 @@ export default {
   methods: {
     async fetchSchedules() {
       try {
-        const response = await axios.get(`http://16.170.159.222:8000/api/show/offer/activity/horaires/${this.activityId}`);
+        const response = await axios.get(`${process.env.VUE_APP_API_URL}/api/show/offer/activity/horaires/${this.activityId}`);
         this.schedules = response.data;
         this.loading = false;
       } catch (error) {

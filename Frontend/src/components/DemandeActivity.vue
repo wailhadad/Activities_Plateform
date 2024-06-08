@@ -37,7 +37,7 @@ export default {
     async fetchActivities() {
       const requestId = this.$route.params.id; // Récupération de l'ID de la demande via les paramètres de la route
       try {
-        const response = await axios.get(`http://16.170.159.222:8000/api/show/parent/demande/activities/${requestId}`);
+        const response = await axios.get(`${process.env.VUE_APP_API_URL}/api/show/parent/demande/activities/${requestId}`);
         this.activities = response.data;
         this.loading = false;
       } catch (error) {

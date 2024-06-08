@@ -35,7 +35,7 @@ export default {
   methods: {
     async fetchRequests() {
       try {
-        const response = await axios.get('http://16.170.159.222:8000/api/show/demandes/parent/');
+        const response = await axios.get(`${process.env.VUE_APP_API_URL}/api/show/demandes/parent/`);
         this.demande = response.data;
         this.loading = false;
 

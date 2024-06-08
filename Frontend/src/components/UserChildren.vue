@@ -40,7 +40,7 @@ export default {
     async fetchChildren() {
       try {
 
-        const response = await axios.get('http://16.170.159.222:8000/api/show/parent/enfant/');
+        const response = await axios.get(`${process.env.VUE_APP_API_URL}/api/show/parent/enfant/`);
         this.children = response.data;
         this.loading = false;
       } catch (error) {

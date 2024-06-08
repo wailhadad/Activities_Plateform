@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     fetchOffers() {
-      axios.get('http://16.170.143.19:8000/api/show/offers/top/')
+      axios.get(`${process.env.VUE_APP_API_URL}/api/show/offers/top/`)
         .then(response => {
           this.offers = response.data;
         })
