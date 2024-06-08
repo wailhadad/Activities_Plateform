@@ -16,7 +16,7 @@ RUN npm install -g @vue/cli
 COPY . ./
 
 # Set permissions (if needed on Linux)
-RUN chown -R node:node /app
+RUN chown -R .
 
 # Expose port
 EXPOSE 8080
