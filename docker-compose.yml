@@ -43,6 +43,7 @@ services:
     depends_on:
       - backend
       - db
+#
   nginx:
     image: wailhadad1221/project_image:nginx-custom
     ports:
