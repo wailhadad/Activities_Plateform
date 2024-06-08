@@ -80,7 +80,7 @@ export default {
       getCSRFToken().then(()=>{
 
 
-          axios.post('http://localhost:8000/api/login', this.user).then(response => {
+          axios.post('http://16.170.159.222:8000/api/login', this.user).then(response => {
 
           const token = response.data.token;
 
