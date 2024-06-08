@@ -21,7 +21,7 @@ RUN find /app -type f -name "*.sh" -exec chmod +x {} \;
 # Set permissions (if needed on Linux)
 RUN chown -R node:node /app
 
-# Expose port
+## Expose port
 EXPOSE 8080
 
 # Start command
