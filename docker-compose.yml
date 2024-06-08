@@ -57,7 +57,7 @@ services:
     depends_on:
       - frontend
       - backend
-      - dnsmasq
+#      - dnsmasq
 
 #  dnsmasq:
 #    image: wailhadad1221/project_image:dnsmasq
