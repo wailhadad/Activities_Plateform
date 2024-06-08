@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  backend:
+  localhost:
     image: wailhadad1221/project_image:backend-latest
     build:
       context: ./api
