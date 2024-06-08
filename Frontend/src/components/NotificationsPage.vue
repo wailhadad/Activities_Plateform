@@ -35,7 +35,7 @@ export default {
   methods: {
     async deleteNotification(id) {
       try {
-        await axios.delete(`http://localhost:8000/api/delete/notification/${id}`);
+        await axios.delete(`http://backend:8000/api/delete/notification/${id}`);
         this.notifications = this.notifications.filter(n => n.id !== id);
       } catch (error) {
         console.error("Failed to delete notification:", error);
@@ -43,7 +43,7 @@ export default {
     },
     async deleteAllNotifications() {
       try {
-        await axios.get('http://localhost:8000/api/delete/notification/all/');
+        await axios.get('http://backend:8000/api/delete/notification/all/');
         this.notifications = [];
       } catch (error) {
         console.error("Failed to delete all notifications:", error);
@@ -54,7 +54,7 @@ export default {
     },
     async loadNotifications() {
       try {
-        const response = await axios.get('http://localhost:8000/api/show/notification/parent/top/');
+        const response = await axios.get('http://backend:8000/api/show/notification/parent/top/');
         this.notifications = response.data;
         this.loading = false;
       } catch (error) {

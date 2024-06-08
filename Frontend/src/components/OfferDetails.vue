@@ -50,7 +50,7 @@ export default {
     async fetchOfferDetails() {
       const offerid = this.$route.params.id; // Récupérer l'ID de l'offre depuis les paramètres de route
       try {
-        const response = await axios.get(`http://localhost:8000/api/show/offer/${offerid}`);
+        const response = await axios.get(`http://backend:8000/api/show/offer/${offerid}`);
         this.offer = response.data;
         this.loading = false;
       } catch (error) {

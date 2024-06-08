@@ -54,7 +54,7 @@ export default {
     async loadChildData() {
       const childId = this.$route.params.id;
       try {
-        const response = await axios.get(`http://localhost:8000/api/children/${childId}`);
+        const response = await axios.get(`http://backend:8000/api/children/${childId}`);
         this.child = response.data;
       } catch (error) {
         console.error('Erreur lors de la récupération des données de l\'enfant:', error);
@@ -84,7 +84,7 @@ export default {
         }
 
         // Envoyez les données au backend
-        await axios.post(`http://localhost:8000/api/children/${childId}`, formData, {
+        await axios.post(`http://backend:8000/api/children/${childId}`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
@@ -99,7 +99,7 @@ export default {
     async deleteChild() {
       const childId = this.$route.params.id;
       try {
-        await axios.delete(`http://localhost:8000/api/children/${childId}`);
+        await axios.delete(`http://backend:8000/api/children/${childId}`);
         this.$router.push({ name: 'userchildren' });
       } catch (error) {
         console.error('Erreur lors de la suppression de l\'enfant:', error);

@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  localhost:
+  backend:
     image: wailhadad1221/project_image:backend-latest
     build:
       context: ./api
@@ -41,7 +41,7 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - localhost
+      - backend
       - db
   nginx:
     image: wailhadad1221/project_image:nginx-custom
@@ -55,7 +55,7 @@ services:
       - ./nginx/private:/etc/ssl/private:ro
     depends_on:
       - frontend
-      - localhost
+      - backend
 #      - dnsmasq
 
 #  dnsmasq:
@@ -78,7 +78,7 @@ services:
       POSTGRES_PASSWORD: password
     volumes:
       - pgdata:/var/lib/postgresql/data
-#
+
 #  mailhog:
 #    image: wailhadad1221/project_image:mailhog  #si ca me marche pas essayer mailhog/mailhog:latest
 #    ports:

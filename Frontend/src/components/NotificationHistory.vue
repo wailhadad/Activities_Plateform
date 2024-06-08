@@ -32,7 +32,7 @@ export default {
   methods: {
     async deleteNotification(id) {
       try {
-        await axios.delete(`http://localhost:8000/api/delete/notification/${id}`);
+        await axios.delete(`http://backend:8000/api/delete/notification/${id}`);
         this.historyNotifications = this.historyNotifications.filter(n => n.id !== id);
       } catch (error) {
         console.error("Failed to delete notification:", error);
@@ -41,7 +41,7 @@ export default {
 
     async loadHistoryNotifications() {
       try {
-        const response = await axios.get('http://localhost:8000/api/show/notification/parent/remaining/');
+        const response = await axios.get('http://backend:8000/api/show/notification/parent/remaining/');
         this.historyNotifications = response.data;
         this.loading = false;
       } catch (error) {

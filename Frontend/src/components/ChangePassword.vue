@@ -54,7 +54,7 @@ export default {
       }
 
       // Envoyer la requête POST avec le token et les nouveaux mots de passe
-      axios.post(`http://localhost:8000/api/reset-password/${token}`, this.passwords)
+      axios.post(`http://backend:8000/api/reset-password/${token}`, this.passwords)
         .then(response => {
           alert(response.data.message);
           this.$router.push('/login');

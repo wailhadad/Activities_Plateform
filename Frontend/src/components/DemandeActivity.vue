@@ -37,7 +37,7 @@ export default {
     async fetchActivities() {
       const requestId = this.$route.params.id; // Récupération de l'ID de la demande via les paramètres de la route
       try {
-        const response = await axios.get(`http://localhost:8000/api/show/parent/demande/activities/${requestId}`);
+        const response = await axios.get(`http://backend:8000/api/show/parent/demande/activities/${requestId}`);
         this.activities = response.data;
         this.loading = false;
       } catch (error) {

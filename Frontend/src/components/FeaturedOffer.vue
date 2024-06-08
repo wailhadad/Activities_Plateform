@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     fetchOffers() {
-      axios.get('http://localhost:8000/api/show/offers/top/')
+      axios.get('http://backend:8000/api/show/offers/top/')
         .then(response => {
           this.offers = response.data;
         })

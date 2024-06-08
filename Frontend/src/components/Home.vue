@@ -27,7 +27,7 @@ export default {
   methods: {
     async submitRequest() {
       try {
-        const response = await axios.post('http://localhost:8000/api/create/demande/', {
+        const response = await axios.post('http://backend:8000/api/create/demande/', {
           activities: this.selectedActivities
         });
         alert(response.data.name);
