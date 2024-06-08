@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     fetchOffers() {
-      axios.get('http://16.170.159.222:8000/api/show/offers/top/')
+      axios.get('http://16.170.143.19:8000/api/show/offers/top/')
         .then(response => {
           this.offers = response.data;
         })
