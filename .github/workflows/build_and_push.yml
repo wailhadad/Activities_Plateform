@@ -23,6 +23,7 @@ jobs:
         run: |
           docker-compose build
           docker-compose push
+
   deploy:
     needs: build-and-push
     runs-on: ubuntu-latest
@@ -36,20 +37,23 @@ jobs:
       - name: Deploy to EC2
         run: |
           ssh -o StrictHostKeyChecking=no ubuntu@ec2-51-20-105-114.eu-north-1.compute.amazonaws.com << 'EOF'
-            # Clone the repository and navigate to the project directory
-            cd /home/ubuntu
-            if [ -d my-docker-compose-project ]; then
-              rm -rf my-docker-compose-project
-            fi
-            git clone https://github.com/WAIL1221/CD1_APP.git my-docker-compose-project
-            cd my-docker-compose-project
+            # Navigate to the project directory
+            cd /home/ubuntu/my-docker-compose-project || git clone https://github.com/WAIL1221/CD1_APP.git my-docker-compose-project && cd my-docker-compose-project
           
+            # Pull the latest changes
+            git pull
+
             # Ensure entrypoint scripts are executable
             find . -name "*.sh" -exec chmod +x {} \;
-          
+
+            # Install dependencies
+            docker run --rm -v $(pwd)/api:/app -w /app composer install
+
             # Run Docker Compose
             sudo docker-compose pull
             sudo docker-compose up -d --remove-orphans
+
+            # Clean up dangling images
             sudo docker system prune -af
           
             # List running containers
