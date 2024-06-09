@@ -35,14 +35,14 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@ec2-16-171-233-137.eu-north-1.compute.amazonaws.com << 'EOF'
+          ssh -o StrictHostKeyChecking=no ubuntu@ec2-51-20-105-114.eu-north-1.compute.amazonaws.com << 'EOF'
             # Clone the repository and navigate to the project directory
             cd /home/ubuntu
             if [ -d my-docker-compose-project ]; then
               rm -rf my-docker-compose-project
             fi
-            git clone https://github.com/WAIL1221/CD1_APP.git app_ginf1
-            cd app_ginf1
+            git clone https://github.com/WAIL1221/CD1_APP.git my-docker-compose-project
+            cd my-docker-compose-project
           
             # Ensure entrypoint scripts are executable
             find . -name "*.sh" -exec chmod +x {} \;
