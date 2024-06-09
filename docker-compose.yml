@@ -44,16 +44,16 @@ services:
       - backend
       - db
 
-  nginx:
-    image: nginx:latest
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./Frontend/dist:/var/www/frontend
-    ports:
-      - "80:80"
-    depends_on:
-      - frontend
-      - backend
+#  nginx:
+#    image: nginx:latest
+#    volumes:
+#      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+#      - ./Frontend/dist:/var/www/frontend
+#    ports:
+#      - "80:80"
+#    depends_on:
+#      - frontend
+#      - backend
 
   #  dnsmasq:
   #    image: wailhadad1221/project_image:dnsmasq
