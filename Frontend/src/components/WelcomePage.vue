@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="image-section">
-      <img src="@/assets/child.png" alt="Learning" class="welcome-image">
+      <img src="https://www.google.com/imgres?q=image&imgurl=https%3A%2F%2Fimages.ctfassets.net%2Fhrltx12pl8hq%2F28ECAQiPJZ78hxatLTa7Ts%2F2f695d869736ae3b0de3e56ceaca3958%2Ffree-nature-images.jpg%3Ffit%3Dfill%26w%3D1200%26h%3D630&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Ffr%2Fdiscover%2Ffree-nature-images&docid=j60c_kpznL5EnM&tbnid=0E5dDA82VanW3M&vet=12ahUKEwil27nkrs6GAxUNi_0HHfwSBm4QM3oECBMQAA..i&w=1200&h=630&hcb=2&ved=2ahUKEwil27nkrs6GAxUNi_0HHfwSBm4QM3oECBMQAA" alt="Learning" class="welcome-image">
     </div>
   </div>
 </template>
