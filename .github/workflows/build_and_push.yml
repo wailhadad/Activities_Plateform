@@ -21,8 +21,8 @@ jobs:
 
       - name: Build and Push Docker Images
         run: |
-          docker-compose -f docker-compose.build.yml build
-          docker-compose -f docker-compose.build.yml push
+          docker-compose build
+          docker-compose push
 
   deploy:
     needs: build-and-push
@@ -53,6 +53,13 @@ jobs:
 
             # Run Docker Compose
             sudo docker-compose up -d --remove-orphans
+
+            # Install dependencies inside the running container
+            sudo docker-compose exec backend composer install
+
+            # Cache the Laravel configuration and routes inside the running container
+            sudo docker-compose exec backend php artisan config:cache
+            sudo docker-compose exec backend php artisan route:cache
 
             # Clean up dangling images
             sudo docker system prune -af
