@@ -32,7 +32,7 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
-#
+
       - name: Deploy to EC2
         run: |
           ssh -o StrictHostKeyChecking=no ubuntu@ec2-51-20-128-116.eu-north-1.compute.amazonaws.com << 'EOF'
