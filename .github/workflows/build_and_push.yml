@@ -36,7 +36,7 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-53-33-145.eu-north-1.compute.amazonaws.com << 'EOF'
+          ssh -o StrictHostKeyChecking=no ubuntu@ec2-16-171-110-128.eu-north-1.compute.amazonaws.com << 'EOF'
             cd /home/ubuntu/my-docker-compose-project || git clone https://github.com/WAIL1221/CD1_APP.git my-docker-compose-project && cd my-docker-compose-project
 
             # Stop running containers
