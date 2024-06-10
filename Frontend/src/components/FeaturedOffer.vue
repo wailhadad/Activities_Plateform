@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from '@/axios'; // Ensure this path is correct based on your project structure
 
 export default {
   data() {
@@ -47,13 +47,13 @@ export default {
   },
   methods: {
     fetchOffers() {
-      axios.get(`${process.env.VUE_APP_API_URL}/api/show/offers/top/`)
-        .then(response => {
-          this.offers = response.data;
-        })
-        .catch(error => {
-          console.error('Erreur lors de la récupération des offres populaires:', error);
-        });
+      axios.get('/show/offers/top/')
+          .then(response => {
+            this.offers = response.data;
+          })
+          .catch(error => {
+            console.error('Erreur lors de la récupération des offres populaires:', error);
+          });
     },
     nextOffer() {
       this.currentIndex = (this.currentIndex + 1) % this.offers.length;
@@ -64,6 +64,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .offer-container {
   display: flex;
