@@ -50,6 +50,7 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/certs:/etc/nginx/certs
+      - ./nginx/private:/etc/nginx/private
       - ./Frontend/dist:/var/www/frontend
     ports:
       - "80:80"
