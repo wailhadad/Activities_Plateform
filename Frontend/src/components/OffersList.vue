@@ -71,7 +71,7 @@ export default {
     fetchOffers() {
       this.loading = true;
       this.error = null;
-      axios.get(`http://16.171.10.244:8000/api/show/offers`)
+      axios.get('http://16.171.10.244:8000/api/show/offers')
         .then(response => {
           this.offers = response.data;
           this.loading = false;
