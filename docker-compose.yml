@@ -52,7 +52,7 @@ services:
       - ./nginx/private:/etc/ssl/private:ro
     ports:
       - "80:80"
-      - "13.53.40.128:80:80"
+      - "51.20.10.172:80:80"
     depends_on:
       - frontend
       - backend
