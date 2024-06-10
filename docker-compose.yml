@@ -45,9 +45,9 @@ services:
       - db
 
   nginx:
-    image: wailhadad1221/project_image:nginx-custom
+    image: nginx:latest
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./Frontend/dist:/var/www/frontend
     ports:
       - "80:80"
