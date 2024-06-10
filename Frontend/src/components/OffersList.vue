@@ -71,7 +71,7 @@ export default {
     fetchOffers() {
       this.loading = true;
       this.error = null;
-      axios.get('http://13.53.40.128:8000/api/show/offers')
+      axios.get(`${process.env.VUE_APP_API_URL}/api/show/offers`)
         .then(response => {
           this.offers = response.data;
           this.loading = false;
