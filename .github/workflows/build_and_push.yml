@@ -36,9 +36,13 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@ec2-51-20-95-145.eu-north-1.compute.amazonaws.com << 'EOF'
+          ssh -o StrictHostKeyChecking=no ubuntu@13.60.95.90 << 'EOF'
             cd /home/ubuntu/my-docker-compose-project || git clone https://github.com/WAIL1221/CD1_APP.git my-docker-compose-project && cd my-docker-compose-project
-
+          
+            # Set correct permissions
+            sudo chown -R $USER:$USER /home/ubuntu/my-docker-compose-project
+            sudo chmod -R 755 /home/ubuntu/my-docker-compose-project
+          
             # Stop running containers
             sudo docker-compose down
 
