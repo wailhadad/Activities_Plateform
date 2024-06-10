@@ -36,7 +36,7 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@16.171.10.244 << 'EOF'
+          ssh -o StrictHostKeyChecking=no ubuntu@13.53.40.128 << 'EOF'
             cd /home/ubuntu/my-docker-compose-project || git clone https://github.com/WAIL1221/CD1_APP.git my-docker-compose-project && cd my-docker-compose-project
           
             # Set correct permissions
