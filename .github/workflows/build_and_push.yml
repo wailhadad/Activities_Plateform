@@ -36,13 +36,9 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@16.171.28.143 << 'EOF'
+          ssh -o StrictHostKeyChecking=no ubuntu@16.171.153.67 << 'EOF'
             cd /home/ubuntu/my-docker-compose-project || git clone https://github.com/WAIL1221/CD1_APP.git my-docker-compose-project && cd my-docker-compose-project
-          
-            # Set correct permissions
-            sudo chown -R $USER:$USER /home/ubuntu/my-docker-compose-project
-            sudo chmod -R 755 /home/ubuntu/my-docker-compose-project
-          
+
             # Stop running containers
             sudo docker-compose down
 
@@ -59,7 +55,7 @@ jobs:
             sudo docker-compose up -d --remove-orphans
 
             # Install dependencies inside the running container
-            sudo docker-compose exec backend composer install
+#            sudo docker-compose exec backend composer install
 
             # Cache the Laravel configuration and routes inside the running container
             sudo docker-compose exec backend php artisan config:cache
