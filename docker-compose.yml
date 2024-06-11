@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   backend:
     image: wailhadad1221/project_image:backend-latest
@@ -23,9 +24,8 @@ services:
   frontend:
     image: wailhadad1221/project_image:frontend-latest
     build:
-      context: .  # Set the build context to the root of the project
-      dockerfile: Frontend/Dockerfile  # Specify the path to the Dockerfile
-    command: npm run serve
+      context: .
+      dockerfile: Frontend/Dockerfile
     ports:
       - "80:80"
     depends_on:

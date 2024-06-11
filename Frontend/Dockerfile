@@ -5,13 +5,13 @@ FROM node:16 as build-stage
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY Frontend/package*.json ./
+COPY ./package*.json ./
 
 # Install app dependencies
 RUN npm install
 
 # Bundle app source
-COPY Frontend/ ./
+COPY ./ ./
 
 # Ensure vue-cli-service is executable
 RUN chmod +x /app/node_modules/.bin/vue-cli-service
