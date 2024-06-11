@@ -12,6 +12,15 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
+# Ensure vue-cli-service is executable
+RUN chmod +x /app/node_modules/.bin/vue-cli-service
+
+# Ensure all shell scripts are executable
+RUN find /app -type f -name "*.sh" -exec chmod +x {} \;
+
+# Set permissions (if needed on Linux)
+RUN chown -R node:node /app
+
 # Build the application
 RUN npm run build
 
