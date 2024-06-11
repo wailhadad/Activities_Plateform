@@ -24,8 +24,8 @@ services:
   frontend:
     image: wailhadad1221/project_image:frontend-latest
     build:
-      context: .
-      dockerfile: Frontend/Dockerfile
+      context: ./Frontend
+      dockerfile: Dockerfile
     ports:
       - "80:80"
     depends_on:
