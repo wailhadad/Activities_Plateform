@@ -5,13 +5,13 @@ FROM node:16 as build-stage
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY package*.json ./
+COPY Frontend/package*.json ./
 
 # Install app dependencies
 RUN npm install
 
 # Bundle app source
-COPY . ./
+COPY Frontend/ ./
 
 # Ensure vue-cli-service is executable
 RUN chmod +x /app/node_modules/.bin/vue-cli-service
@@ -32,7 +32,7 @@ FROM nginx:latest
 COPY --from=build-stage /app/dist/ /usr/share/nginx/html
 
 # Copy custom Nginx configuration
-COPY ../nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80
 EXPOSE 80
